@@ -1,0 +1,6 @@
+pandas
+flask_sqlalchemy_session
+joblib
+scikit-learn
+psycopg2
+flask

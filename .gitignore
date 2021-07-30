@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+
+develop-eggs/
+.eggs/
+eggs/
+*.egg-info/
+*.egg
+.nox/
+
+.ipynb_checkpoints/

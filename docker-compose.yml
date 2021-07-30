@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+    postgres:
+        image: postgres:10.5
+        restart: always
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=p4ssw0rd
+        logging:
+          options:
+            max-size: 10m
+            max-file: "3"
+        ports:
+          - '5438:5432'
+        volumes:
+          - ./db/postgres-data:/var/lib/postgresql/data
+          - ./db/sql/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    web:
+      build: .
+      ports:
+        - "5000:5000"
+      depends_on:
+        - postgres
+      volumes:
+        - .:/code
