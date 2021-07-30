@@ -8,7 +8,7 @@ $ docker-compose up --build postgres
 
 Y posteriormente ejecutar el script
 ```bash
-$ python load_model()
+$ python load_data.py
 ```
 para crear el esquema e insertar los datos.
 
