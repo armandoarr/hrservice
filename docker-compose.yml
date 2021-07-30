@@ -16,6 +16,7 @@ services:
           - ./db/postgres-data:/var/lib/postgresql/data
           - ./db/sql/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     web:
+      tty: true
       build: .
       ports:
         - "5000:5000"
@@ -23,3 +24,5 @@ services:
         - postgres
       volumes:
         - .:/code
+      environment:
+        - FLASK_APP=model/api.py

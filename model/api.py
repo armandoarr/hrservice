@@ -1,7 +1,7 @@
 from flask import Flask, abort, request, jsonify
 from flask_sqlalchemy_session import flask_scoped_session
 from psycopg2.extras import (RealDictCursor, RealDictRow)
-from .hrmodel.base_model import hr_predict
+from hrmodel.base_model import hr_predict
 
 import psycopg2
 import logging
@@ -68,5 +68,5 @@ def get_employee_prediction():
     return output, 201, {"Content-Type": 'application/json'}
 
 
-if __name__ != "__main__":
+if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

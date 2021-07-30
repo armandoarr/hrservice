@@ -8,4 +8,4 @@ COPY model /model/
 COPY load_data.py .
 RUN pip install -e model
 
-CMD [ "python", "model/api.py" ]
+CMD flask run
