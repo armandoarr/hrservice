@@ -24,6 +24,10 @@ instalar los paquetes necesarios
 $ pip install -r requirements.txt
 ```
 
+```bash
+$ pip install -e model
+```
+
 y correr el **flask** en la carpeta **/model**
 
 ```bash
@@ -39,3 +43,17 @@ Los registros y las puntuaciones pueden consultarse, por ejemplo con un curl,
 $ curl http://localhost:5000/employees/scores/<employee_number>
 ```
 y las predicciones para un colaborador nuevo haciendo un post en la url http://localhost:5000/employees/predictions
+
+
+## levantar el docker
+Para ejecutar ambos contenedores se puede primero construir la imagen del flask con
+```bash
+$ docker build -t <nombre-del-flask> .
+```
+
+y posteriormente ejectuar
+```bash
+$ docker-compose up --build postgres web
+```
+
+consultando las url's anteriores puede obtenerse la misma información.
