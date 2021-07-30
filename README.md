@@ -45,15 +45,19 @@ $ curl http://localhost:5000/employees/scores/<employee_number>
 y las predicciones para un colaborador nuevo haciendo un post en la url http://localhost:5000/employees/predictions
 
 
-## levantar el docker
-Para ejecutar ambos contenedores se puede primero construir la imagen del flask con
+## Levantar servicio y BD usando docker-compose
+Para ejecutar ambos contenedores usando docker sólo hay que levantar ambos contenedores usando docker-compose
 ```bash
-$ docker build -t <nombre-del-flask> .
-```
-
-y posteriormente ejectuar
-```bash
-$ docker-compose up --build postgres web
+$ docker-compose up --build database web
 ```
 
 consultando las url's anteriores puede obtenerse la misma información.
+```bash
+$ curl http://localhost:5000/employees/scores/<employee_number> | jq
+```
+
+## Pruebas
+Las pruebas pueden correrse usando
+```bash
+$ nox -s tests
+```

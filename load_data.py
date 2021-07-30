@@ -4,12 +4,12 @@ import sqlalchemy
 import os
 import re
 
-from hrmodel.base_model import get_turnover_score
+from model.hrmodel.base_model import get_turnover_score
 
 logging.basicConfig()
 logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
-engine = sqlalchemy.create_engine('postgresql://postgres:p4ssw0rd@localhost:5438/postgres')
+engine = sqlalchemy.create_engine('postgresql://postgres:p4ssw0rd@localhost:5432/postgres')
 
 
 def split_column_name(column_name):

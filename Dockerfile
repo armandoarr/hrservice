@@ -8,4 +8,4 @@ COPY model /model/
 COPY load_data.py .
 RUN pip install -e model
 
-CMD flask run
+CMD flask run --host=0.0.0.0

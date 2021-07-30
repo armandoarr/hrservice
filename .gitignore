@@ -9,3 +9,6 @@ eggs/
 .nox/
 
 .ipynb_checkpoints/
+.coverage
+htmlcov/
+report.xml

@@ -11,8 +11,8 @@ import pandas as pd
 
 app = Flask(__name__)
 params = {
-    "host": "localhost",
-    "port": 5438,
+    "host": "database",
+    "port": 5432,
     "database": "postgres",
     "user": "postgres",
     "password": "p4ssw0rd"
@@ -53,6 +53,8 @@ def get_employee_score(employee_id):
             return abort(500)
         resp = cursor.fetchall()
         cursor.close()
+        if not resp[0]:
+            return abort(404, "Empleado desconocido")
         return jsonify(resp[0]), 200, {"Content-Type": 'application/json'}
 
 
@@ -69,4 +71,4 @@ def get_employee_prediction():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
